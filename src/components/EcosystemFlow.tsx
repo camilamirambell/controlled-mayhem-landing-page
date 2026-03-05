@@ -4,6 +4,8 @@ import { useCallback } from "react";
 import {
   ReactFlow,
   Background,
+  Handle,
+  Position,
   useNodesState,
   useEdgesState,
   BaseEdge,
@@ -71,6 +73,8 @@ const edgeTypes = { dashed: DashedEdge };
 
 // ─── Custom Nodes ──────────────────────────────────────────────────────────────
 
+const handleStyle = { background: "transparent", border: "none", width: 8, height: 8 };
+
 function ProductNode({ data }: { data: Record<string, unknown> }) {
   return (
     <div
@@ -95,6 +99,10 @@ function ProductNode({ data }: { data: Record<string, unknown> }) {
         e.currentTarget.style.boxShadow = "none";
       }}
     >
+      <Handle type="target" position={Position.Top}    style={handleStyle} />
+      <Handle type="target" position={Position.Left}   style={handleStyle} />
+      <Handle type="source" position={Position.Bottom} style={handleStyle} />
+      <Handle type="source" position={Position.Right}  style={handleStyle} />
       <div style={{ fontSize: 20, marginBottom: 5 }}>{data.icon as string}</div>
       <div style={{ fontWeight: 700, color: "#fff", fontSize: 12, marginBottom: 3, letterSpacing: "0.02em" }}>
         {data.label as string}
@@ -121,6 +129,10 @@ function CenterNode({ data }: { data: Record<string, unknown> }) {
         userSelect: "none",
       }}
     >
+      <Handle type="source" position={Position.Top}    style={handleStyle} />
+      <Handle type="source" position={Position.Right}  style={handleStyle} />
+      <Handle type="source" position={Position.Bottom} style={handleStyle} />
+      <Handle type="source" position={Position.Left}   style={handleStyle} />
       <div style={{ fontWeight: 800, color: "#fff", fontSize: 14, marginBottom: 3 }}>
         {data.label as string}
       </div>
