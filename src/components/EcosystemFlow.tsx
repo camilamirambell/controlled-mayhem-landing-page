@@ -229,14 +229,14 @@ export default function EcosystemFlow() {
         .react-flow__node { z-index: 10 !important; }
       `}</style>
 
-      <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 24px" }}>
-        {/* Title */}
+      {/* Title — centered, max-width container */}
+      <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 24px", marginBottom: 40 }}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          style={{ textAlign: "center", marginBottom: 40 }}
+          style={{ textAlign: "center" }}
         >
           <h2 style={{ fontSize: "clamp(32px,5vw,48px)", fontWeight: 800, color: "#fff", marginBottom: 12 }}>
             The Ecosystem
@@ -245,49 +245,50 @@ export default function EcosystemFlow() {
             AI products that work together. Drag them around.
           </p>
         </motion.div>
-
-        {/* Canvas */}
-        <div
-          style={{
-            height: 620,
-            borderRadius: 16,
-            border: "1px solid rgba(0,255,255,0.1)",
-            boxShadow: "0 0 60px rgba(0,255,255,0.05)",
-            overflow: "hidden",
-            position: "relative",
-          }}
-        >
-          <ReactFlow
-            nodes={nodes}
-            edges={edges}
-            nodeTypes={nodeTypes}
-            edgeTypes={edgeTypes}
-            onNodesChange={onNodesChange as (changes: NodeChange[]) => void}
-            onEdgesChange={onEdgesChange as (changes: EdgeChange[]) => void}
-            onInit={onInit}
-            nodesDraggable={true}
-            nodesConnectable={false}
-            elementsSelectable={false}
-            fitView
-            fitViewOptions={{ padding: 0.25 }}
-            panOnDrag={false}
-            zoomOnScroll={false}
-            zoomOnPinch={false}
-            zoomOnDoubleClick={false}
-            panOnScroll={false}
-            preventScrolling={false}
-            proOptions={{ hideAttribution: true }}
-            style={{ background: "#0a0a0a" }}
-          >
-            <Background color="rgba(0,255,255,0.04)" gap={24} size={1} />
-          </ReactFlow>
-        </div>
-
-        {/* Hint */}
-        <p style={{ textAlign: "center", color: "rgba(255,255,255,0.18)", fontSize: 11, marginTop: 14, letterSpacing: "0.05em" }}>
-          DRAG THE NODES — THEY WON&apos;T BREAK
-        </p>
       </div>
+
+      {/* Canvas — 100% width */}
+      <div
+        style={{
+          width: "100%",
+          height: 620,
+          borderTop: "1px solid rgba(0,255,255,0.08)",
+          borderBottom: "1px solid rgba(0,255,255,0.08)",
+          boxShadow: "0 0 80px rgba(0,255,255,0.05)",
+          overflow: "hidden",
+          position: "relative",
+        }}
+      >
+        <ReactFlow
+          nodes={nodes}
+          edges={edges}
+          nodeTypes={nodeTypes}
+          edgeTypes={edgeTypes}
+          onNodesChange={onNodesChange as (changes: NodeChange[]) => void}
+          onEdgesChange={onEdgesChange as (changes: EdgeChange[]) => void}
+          onInit={onInit}
+          nodesDraggable={true}
+          nodesConnectable={false}
+          elementsSelectable={false}
+          fitView
+          fitViewOptions={{ padding: 0.35 }}
+          panOnDrag={false}
+          zoomOnScroll={false}
+          zoomOnPinch={false}
+          zoomOnDoubleClick={false}
+          panOnScroll={false}
+          preventScrolling={false}
+          proOptions={{ hideAttribution: true }}
+          style={{ background: "#0a0a0a" }}
+        >
+          <Background color="rgba(0,255,255,0.04)" gap={24} size={1} />
+        </ReactFlow>
+      </div>
+
+      {/* Hint */}
+      <p style={{ textAlign: "center", color: "rgba(255,255,255,0.18)", fontSize: 11, marginTop: 14, letterSpacing: "0.05em" }}>
+        DRAG THE NODES — THEY WON&apos;T BREAK
+      </p>
     </section>
   );
 }
