@@ -1,7 +1,8 @@
 import SmoothScroll from "@/components/SmoothScroll";
 import Hero from "@/components/Hero";
-import Stats from "@/components/Stats";
-import Products from "@/components/Products";
+import WhatWeDo from "@/components/WhatWeDo";
+import FeaturedWork from "@/components/FeaturedWork";
+import OpenSourceTeaser from "@/components/OpenSourceTeaser";
 import EcosystemFlow from "@/components/EcosystemFlow";
 
 export default function Home() {
@@ -9,8 +10,9 @@ export default function Home() {
     <SmoothScroll>
       <main>
         <Hero />
-        <Stats />
-        <Products />
+        <WhatWeDo />
+        <FeaturedWork />
+        <OpenSourceTeaser />
         <EcosystemFlow />
       </main>
     </SmoothScroll>
