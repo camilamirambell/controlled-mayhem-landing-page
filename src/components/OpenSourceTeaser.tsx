@@ -22,11 +22,11 @@ const products = [
 ];
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.25, 0.4, 0.25, 1] as const },
+    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const },
   },
 };
 
@@ -40,72 +40,122 @@ export default function OpenSourceTeaser() {
   };
 
   return (
-    <section id="open-source" className="bg-[#070710] py-24 sm:py-32">
-      <div className="mx-auto max-w-5xl px-6">
+    <section
+      id="open-source"
+      className="relative overflow-hidden py-28 sm:py-36"
+      style={{
+        background:
+          "linear-gradient(180deg, #070710 0%, #07090f 50%, #060810 100%)",
+      }}
+    >
+      {/* Subtle background texture shift */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 50% at 50% 100%, rgba(200,255,0,0.04) 0%, transparent 70%)",
+        }}
+      />
+
+      {/* Top separator */}
+      <div className="absolute top-0 left-6 right-6 mx-auto max-w-6xl">
+        <div className="hr-line" />
+      </div>
+
+      <div className="relative mx-auto max-w-6xl px-6">
+
+        {/* Section header */}
         <motion.div
-          className="mb-16"
+          className="mb-20"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="mb-4 text-3xl font-bold text-white sm:text-5xl">
+          <div className="mb-6 flex items-center gap-4">
+            <div className="h-[1px] w-8 bg-[#C8FF00]" />
+            <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-white/40">
+              Open source
+            </span>
+          </div>
+          <h2 className="text-4xl font-black leading-tight tracking-tight text-white sm:text-6xl">
             We&apos;re going open.
           </h2>
-          <p className="max-w-xl text-lg text-white/50">
+          <p className="mt-4 max-w-md text-[0.95rem] leading-[1.7] text-white/45">
             Three of our internal tools are getting open-sourced with hosted tiers.
           </p>
         </motion.div>
 
-        <div className="mb-16 flex flex-col gap-4">
+        {/* Product list */}
+        <div className="mb-20 flex flex-col">
           {products.map((product, i) => (
             <motion.div
               key={product.name}
-              className="flex flex-col gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:flex-row sm:items-center sm:justify-between"
               variants={fadeUp}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
+              className="group relative"
             >
-              <div>
-                <h3 className="mb-1 text-lg font-semibold text-white">{product.name}</h3>
-                <p className="text-sm text-white/50">{product.description}</p>
+              <div className="absolute top-0 left-0 right-0 h-[1px] bg-white/[0.06] transition-colors group-hover:bg-[#C8FF00]/20" />
+
+              <div className="flex items-center justify-between gap-6 py-8">
+                <div className="flex flex-col gap-1.5">
+                  <h3 className="text-lg font-bold text-white group-hover:text-white transition-colors sm:text-xl">
+                    {product.name}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-white/40">{product.description}</p>
+                </div>
+                <span className="shrink-0 font-mono text-[10px] uppercase tracking-[0.18em] text-[#C8FF00] border border-[#C8FF00]/25 px-3 py-1.5">
+                  {product.status}
+                </span>
               </div>
-              <span className="shrink-0 self-start rounded-full border border-[#C8FF00]/20 bg-[#C8FF00]/10 px-3 py-1 text-xs font-medium text-[#C8FF00]">
-                {product.status}
-              </span>
+
+              {i === products.length - 1 && (
+                <div className="h-[1px] bg-white/[0.06]" />
+              )}
             </motion.div>
           ))}
         </div>
 
-        <motion.form
-          onSubmit={handleSubmit}
-          className="flex flex-col gap-3 sm:flex-row"
+        {/* Email capture */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between"
         >
-          <input
-            type="email"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="your@email.com"
-            className="flex-1 rounded-full border border-white/10 bg-white/[0.05] px-6 py-3 text-sm text-white placeholder-white/30 outline-none transition-colors focus:border-[#C8FF00]/30"
-          />
-          <button
-            type="submit"
-            className="rounded-full bg-[#C8FF00] px-8 py-3 text-sm font-semibold text-black transition-opacity hover:opacity-90"
-          >
-            Get early access
-          </button>
-        </motion.form>
+          <div className="max-w-sm">
+            <p className="mb-1 text-sm font-semibold text-white">
+              Get early access
+            </p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/30">
+              No spam. Just a ping when we launch.
+            </p>
+          </div>
 
-        <p className="mt-4 text-xs text-white/30">
-          No spam. Just a ping when we launch.
-        </p>
+          <form
+            onSubmit={handleSubmit}
+            className="flex w-full max-w-md gap-0"
+          >
+            <input
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="your@email.com"
+              className="flex-1 border border-white/10 border-r-0 bg-white/[0.04] px-5 py-3.5 font-mono text-sm text-white placeholder-white/25 outline-none transition-colors focus:border-[#C8FF00]/40 focus:bg-white/[0.06]"
+            />
+            <button
+              type="submit"
+              className="shrink-0 border border-[#C8FF00] bg-[#C8FF00] px-6 py-3.5 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-black transition-all hover:bg-transparent hover:text-[#C8FF00]"
+            >
+              Get early access
+            </button>
+          </form>
+        </motion.div>
       </div>
     </section>
   );
