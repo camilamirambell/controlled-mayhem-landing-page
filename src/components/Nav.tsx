@@ -13,7 +13,7 @@ export default function Nav() {
   const pathname = usePathname();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#070710]/90 backdrop-blur-xl">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-[18px]">
         {/* Brand mark */}
         <Link

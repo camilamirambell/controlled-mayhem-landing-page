@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #070710;
-  --foreground: #ededed;
+  --background: #111827;
+  --foreground: #f5f5f5;
   --accent: #C8FF00;
 }
 
@@ -12,6 +12,7 @@
   --color-accent: var(--accent);
   --font-sans: var(--font-syne);
   --font-mono: var(--font-dm-mono);
+  --font-display: var(--font-display);
 }
 
 /* Noise texture overlay */

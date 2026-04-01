@@ -6,23 +6,30 @@ import { motion } from "framer-motion";
 const tools = [
   {
     name: "Delegate",
-    tagline: "The MCP proxy hub that makes your AI tools actually work together.",
+    tagline: "One MCP URL. 33+ APIs. 88% fewer tokens.",
     description:
-      "Delegate sits between your AI assistant and your tools. It routes tool calls intelligently, reducing token usage by up to 88%. Connect Gmail, Slack, Figma, Linear, and more — one URL, one key.",
+      "Delegate sits between your AI agent and your tools — Gmail, Slack, Figma, Linear, Stripe, and more. Smart routing means your agent only loads the schemas it needs, cutting token usage by 88%. You connect once; your agent gets everything.",
     status: "Coming Soon",
   },
   {
     name: "TaskHive",
-    tagline: "Task management built for humans and agents working together.",
+    tagline: "Kanban for humans. REST API for agents. Same board.",
     description:
-      "TaskHive is a Kanban board with a twist: AI agents can read it, update it, and work tasks autonomously while you watch. Built for teams where the dev is sometimes a Claude instance.",
+      "TaskHive is task management where your AI agents are first-class participants. They claim tickets, write code, open PRs, and report back. Includes an autonomous daemon that runs a PM, Dev, and QA pipeline — Claude instances reviewing each other's work.",
+    status: "Coming Soon",
+  },
+  {
+    name: "Hecate",
+    tagline: "Share .env files without trusting the server.",
+    description:
+      "Zero-knowledge secrets management for teams. Your .env is encrypted on your machine before it ever leaves — the server stores blobs it can't read. Push, pull, diff, rollback, invite teammates. AES-256-GCM with a DEK/KEK model.",
     status: "Coming Soon",
   },
   {
     name: "MegaBrain",
-    tagline: "Semantic memory layer for your AI stack.",
+    tagline: "Give your AI agents a memory that persists.",
     description:
-      "MegaBrain connects to your Obsidian vault (or any notes) and exposes a search + retrieval API for AI agents. Your Claude actually remembers things — across sessions, across tools.",
+      "MegaBrain connects to your Obsidian vault and exposes semantic search + retrieval via MCP. Your AI agents can search your notes by meaning, not keywords — and remember context across sessions and tools.",
     status: "Coming Soon",
   },
 ];
@@ -48,7 +55,7 @@ export default function OpenSourcePage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#070710] pt-[57px]">
+    <main className="min-h-screen bg-background pt-[57px]">
 
       {/* Hero area */}
       <div className="relative overflow-hidden border-b border-white/[0.06] py-24 sm:py-32">
@@ -68,17 +75,20 @@ export default function OpenSourcePage() {
           >
             <div className="mb-6 flex items-center gap-4">
               <div className="h-[1px] w-8 bg-[#C8FF00]" />
-              <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-white/40">
+              <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-white/55">
                 Open source
               </span>
             </div>
-            <h1 className="text-[clamp(2.8rem,8vw,7rem)] font-black leading-[0.95] tracking-tight text-white">
+            <h1
+              className="text-[clamp(2.8rem,8vw,7rem)] leading-[0.95] tracking-tight text-white"
+              style={{ fontFamily: "var(--font-display), Georgia, serif" }}
+            >
               Open source.{" "}
-              <span className="text-white/40">Hosted.</span>{" "}
+              <span className="text-white/55 italic">Hosted.</span>{" "}
               Yours.
             </h1>
-            <p className="mt-6 max-w-lg text-[0.95rem] leading-[1.75] text-white/45">
-              We built these tools for ourselves. They work in production. Now we&apos;re opening them up.
+            <p className="mt-6 max-w-lg text-[0.95rem] leading-[1.75] text-white/60">
+              We built these tools because we needed them. They run our own infrastructure. Now we&apos;re releasing them with hosted tiers so you don&apos;t have to deploy anything.
             </p>
           </motion.div>
         </div>
@@ -103,7 +113,10 @@ export default function OpenSourcePage() {
               <div className="grid gap-8 sm:grid-cols-[1fr_1fr_auto] sm:gap-12 sm:items-start">
                 {/* Name + tagline */}
                 <div className="flex flex-col gap-2">
-                  <h2 className="text-2xl font-bold text-white sm:text-3xl">
+                  <h2
+                    className="text-2xl text-white sm:text-3xl"
+                    style={{ fontFamily: "var(--font-display), Georgia, serif" }}
+                  >
                     {tool.name}
                   </h2>
                   <p className="text-base font-medium leading-snug text-white/55">
@@ -112,7 +125,7 @@ export default function OpenSourcePage() {
                 </div>
 
                 {/* Description */}
-                <p className="text-sm leading-[1.8] text-white/40">
+                <p className="text-sm leading-[1.8] text-white/55">
                   {tool.description}
                 </p>
 
@@ -147,7 +160,7 @@ export default function OpenSourcePage() {
               <h2 className="mb-3 text-3xl font-black tracking-tight text-white sm:text-4xl">
                 Get early access
               </h2>
-              <p className="max-w-sm text-sm leading-relaxed text-white/40">
+              <p className="max-w-sm text-sm leading-relaxed text-white/55">
                 We&apos;ll ping you when we launch. No spam.
               </p>
             </div>

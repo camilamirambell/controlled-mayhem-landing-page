@@ -6,19 +6,19 @@ const columns = [
   {
     number: "01",
     title: "Client Products",
-    body: "We partner with companies to design and build AI-native products — from architecture to deployment. No generic integrations. Real systems.",
+    body: "Your lawyers search 3M+ legal documents with AI. Your contractors extract material lists from blueprints in minutes. We build the product, deploy it, and stay until it works.",
     badge: null,
   },
   {
     number: "02",
     title: "Internal Tools",
-    body: "We build the tools we wish existed: an MCP proxy hub, a human-agent task manager, a semantic memory layer. Then we ship them.",
+    body: "We needed an MCP proxy that cuts token usage by 88%. A task board where Claude picks up tickets autonomously. A secrets manager with real zero-knowledge encryption. So we built them.",
     badge: null,
   },
   {
     number: "03",
     title: "Open Source",
-    body: "We're releasing our internal stack as open-source projects with hosted tiers. If you want early access, leave your email.",
+    body: "Four of our internal tools are becoming open-source projects with hosted tiers. Same code we run in production.",
     badge: "Coming soon",
   },
 ];
@@ -34,7 +34,7 @@ const fadeUp = {
 
 export default function WhatWeDo() {
   return (
-    <section className="bg-[#070710] py-28 sm:py-36">
+    <section className="bg-background py-28 sm:py-36">
       <div className="mx-auto max-w-6xl px-6">
 
         {/* Section header */}
@@ -47,14 +47,14 @@ export default function WhatWeDo() {
         >
           <div className="flex items-center gap-4">
             <div className="h-[1px] w-8 bg-[#C8FF00]" />
-            <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-white/40">
+            <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-white/50">
               What we do
             </span>
           </div>
           <div className="hr-line flex-1 max-w-[480px]" />
         </motion.div>
 
-        {/* Services list — editorial layout */}
+        {/* Services list */}
         <div className="flex flex-col">
           {columns.map((col, i) => (
             <motion.div
@@ -72,7 +72,10 @@ export default function WhatWeDo() {
               <div className="grid grid-cols-[80px_1fr] gap-8 py-10 sm:grid-cols-[120px_1fr_1fr] sm:gap-12">
                 {/* Large number */}
                 <div className="flex flex-col justify-start pt-1">
-                  <span className="font-mono text-4xl font-medium leading-none text-[#C8FF00] sm:text-5xl">
+                  <span
+                    className="text-4xl leading-none text-[#C8FF00] sm:text-5xl italic transition-transform duration-300 group-hover:translate-x-1"
+                    style={{ fontFamily: "var(--font-display), Georgia, serif" }}
+                  >
                     {col.number}
                   </span>
                 </div>
@@ -80,7 +83,10 @@ export default function WhatWeDo() {
                 {/* Title */}
                 <div className="flex flex-col justify-center">
                   <div className="flex items-center gap-3">
-                    <h3 className="text-xl font-bold text-white sm:text-2xl">
+                    <h3
+                      className="text-xl text-white sm:text-2xl"
+                      style={{ fontFamily: "var(--font-display), Georgia, serif" }}
+                    >
                       {col.title}
                     </h3>
                     {col.badge && (
@@ -93,7 +99,7 @@ export default function WhatWeDo() {
 
                 {/* Body */}
                 <div className="col-start-2 sm:col-start-3 flex items-center">
-                  <p className="text-[0.9rem] leading-[1.75] text-white/45">
+                  <p className="text-[0.9rem] leading-[1.75] text-white/60">
                     {col.body}
                   </p>
                 </div>

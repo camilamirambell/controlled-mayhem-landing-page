@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#070710]">
+    <footer className="bg-background">
       <div className="hr-line" />
       <div className="mx-auto max-w-6xl px-6 py-12">
         <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
@@ -19,7 +19,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-white/20 italic">
-              Building with AI, not around it.
+              AI that ships. From Costa Rica.
             </p>
           </div>
 

@@ -35,7 +35,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative flex min-h-[calc(100vh-57px)] items-center overflow-hidden bg-[#070710]">
+    <section className="relative flex min-h-[calc(100vh-57px)] items-center overflow-hidden bg-background">
 
       {/* Decorative ghost "CM" watermark */}
       <motion.div
@@ -83,18 +83,19 @@ export default function Hero() {
         {/* Eyebrow */}
         <motion.div variants={fadeUp} className="mb-8 flex items-center gap-4">
           <div className="h-[1px] w-12 bg-[#C8FF00]" />
-          <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-white/40">
-            AI Research &amp; Development Studio · Costa Rica
+          <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-white/50">
+            AI Product Studio · Costa Rica
           </span>
         </motion.div>
 
         {/* Main headline */}
         <motion.h1
           variants={fadeUp}
-          className="mb-10 text-[clamp(4.5rem,13vw,10.5rem)] font-black leading-[0.92] tracking-[-0.03em] text-white"
+          className="mb-10 text-[clamp(4.5rem,13vw,10.5rem)] leading-[0.92] tracking-[-0.02em] text-white"
+          style={{ fontFamily: "var(--font-display), Georgia, serif" }}
         >
           AI that{" "}
-          <span className="relative inline-block">
+          <span className="relative inline-block italic">
             ships.
             <span
               className="absolute -bottom-2 left-0 h-[4px] w-full"
@@ -110,9 +111,9 @@ export default function Hero() {
 
         {/* Subtext + CTA */}
         <motion.div variants={fadeUp} className="flex flex-col gap-10 sm:flex-row sm:items-end sm:justify-between">
-          <p className="max-w-md text-[1.05rem] leading-[1.65] text-white/50">
-            We build AI-powered products for clients and tools for the ecosystem.
-            Based in Costa Rica. Deployed everywhere.
+          <p className="max-w-md text-[1.05rem] leading-[1.65] text-white/65">
+            We build AI products that run in production — for clients who need them
+            and as open-source tools for the ecosystem. From Costa Rica to everywhere.
           </p>
 
           <div className="flex flex-col items-start gap-4 sm:items-end">
@@ -142,8 +143,8 @@ export default function Hero() {
           className="mt-20 flex flex-wrap gap-x-12 gap-y-4 border-t border-white/[0.06] pt-8"
         >
           {[
-            { label: "Products shipped", value: "03" },
-            { label: "Open source tools", value: "03" },
+            { label: "Products in production", value: "06" },
+            { label: "Going open source", value: "04" },
             { label: "Hallucinations tolerated", value: "00" },
           ].map((stat) => (
             <div key={stat.label} className="flex flex-col gap-1">

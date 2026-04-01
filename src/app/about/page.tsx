@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-[#070710] pt-[57px]">
+    <main className="min-h-screen bg-background pt-[57px]">
 
       {/* Hero / large quote area */}
       <div className="relative overflow-hidden border-b border-white/[0.06] py-24 sm:py-40">
@@ -52,10 +52,13 @@ export default function AboutPage() {
             </div>
 
             {/* Big quote line */}
-            <h1 className="text-[clamp(2.2rem,6vw,5rem)] font-black leading-[1.05] tracking-tight text-white">
-              We make AI{" "}
-              <span className="relative inline-block text-[#C8FF00]">
-                actually useful.
+            <h1
+              className="text-[clamp(2.2rem,6vw,5rem)] leading-[1.05] tracking-tight text-white"
+              style={{ fontFamily: "var(--font-display), Georgia, serif" }}
+            >
+              Small studio.{" "}
+              <span className="relative inline-block italic text-[#C8FF00]">
+                Real products.
               </span>
             </h1>
           </motion.div>
@@ -70,15 +73,21 @@ export default function AboutPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
-            <p className="mb-6 text-[1.05rem] leading-[1.8] text-white/65">
-              We&apos;re a small studio obsessed with making AI actually useful. We build
-              production-grade products for clients, and we build tools for ourselves
-              that we end up shipping publicly. Everything we make is designed to solve
-              real problems, not demo problems.
+            <p className="mb-6 text-[1.05rem] leading-[1.8] text-white/75">
+              Controlled Mayhem is a product studio that builds with AI, not around it.
+              We ship production systems for clients — legal tech, construction tech,
+              education ops — and we build our own tools when the ones we need
+              don&apos;t exist yet.
             </p>
 
-            <p className="text-[1.05rem] leading-[1.8] text-white/65">
-              Based in Costa Rica. Working everywhere.
+            <p className="mb-6 text-[1.05rem] leading-[1.8] text-white/75">
+              Our internal tools kept getting good enough to release, so we started
+              open-sourcing them. Delegate, TaskHive, Hecate, and MegaBrain all run
+              our own infrastructure before they run yours.
+            </p>
+
+            <p className="text-[1.05rem] leading-[1.8] text-white/75">
+              Based in Costa Rica. Deployed everywhere.
             </p>
           </motion.div>
 
@@ -91,23 +100,28 @@ export default function AboutPage() {
             {/* Principles */}
             <div className="flex flex-col gap-0">
               {[
-                { n: "01", text: "Ship real systems, not prototypes." },
-                { n: "02", text: "Build with AI, not around it." },
-                { n: "03", text: "If it works for us, it'll work for you." },
+                { n: "01", text: "Ship systems that run in production, not demos that impress in meetings." },
+                { n: "02", text: "Build with AI as a core material, not as a feature checkbox." },
+                { n: "03", text: "Eat our own cooking. Every tool we sell, we use first." },
               ].map((item) => (
                 <div key={item.n} className="border-t border-white/[0.07] py-5 flex items-start gap-5">
                   <span className="font-mono text-xs text-[#C8FF00] shrink-0 mt-0.5">
                     {item.n}
                   </span>
-                  <p className="text-sm leading-relaxed text-white/45">{item.text}</p>
+                  <p className="text-sm leading-relaxed text-white/60">{item.text}</p>
                 </div>
               ))}
               <div className="border-t border-white/[0.07]" />
             </div>
 
-            <p className="mt-8 font-mono text-[11px] uppercase tracking-[0.15em] text-white/25 italic">
-              More coming soon.
-            </p>
+            <div className="mt-8 flex flex-col gap-1.5">
+              <a href="mailto:andrea@controlledmayhem.com" className="font-mono text-[11px] uppercase tracking-[0.15em] text-white/30 transition-colors hover:text-[#C8FF00]">
+                andrea@controlledmayhem.com
+              </a>
+              <a href="mailto:daniel@controlledmayhem.com" className="font-mono text-[11px] uppercase tracking-[0.15em] text-white/30 transition-colors hover:text-[#C8FF00]">
+                daniel@controlledmayhem.com
+              </a>
+            </div>
           </motion.div>
         </div>
       </div>
