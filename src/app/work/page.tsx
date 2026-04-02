@@ -1,12 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const caseStudies = [
   {
     number: "01",
     tag: "Client Product",
     name: "Kodus Legal",
+    slug: "kodus-legal",
     url: "koduslegal.com",
     headline: "3 million legal documents. One search bar that understands the question.",
     problem:
@@ -24,6 +26,7 @@ const caseStudies = [
     number: "02",
     tag: "Client Product",
     name: "Cimenta",
+    slug: "cimenta",
     url: "cimenta.ai",
     headline: "From blueprint to bill of materials in minutes, not days.",
     problem:
@@ -41,6 +44,7 @@ const caseStudies = [
     number: "03",
     tag: "Internal Tool",
     name: "Hecate",
+    slug: "hecate",
     url: "hecate.controlledmayhem.com",
     headline: "Your .env files, encrypted before they leave your machine.",
     problem:
@@ -128,12 +132,14 @@ export default function WorkPage() {
                 <div className="flex flex-col gap-4">
                   {/* Product name — big and clear */}
                   <div className="flex flex-wrap items-baseline gap-4">
-                    <h2
-                      className="text-4xl text-white sm:text-5xl"
-                      style={{ fontFamily: "var(--font-display), Georgia, serif" }}
-                    >
-                      {cs.name}
-                    </h2>
+                    <Link href={`/work/${cs.slug}`}>
+                      <h2
+                        className="text-4xl text-white transition-colors hover:text-[#C8FF00] sm:text-5xl"
+                        style={{ fontFamily: "var(--font-display), Georgia, serif" }}
+                      >
+                        {cs.name}
+                      </h2>
+                    </Link>
                     <a
                       href={`https://${cs.url}`}
                       target="_blank"

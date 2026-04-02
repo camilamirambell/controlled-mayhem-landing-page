@@ -7,6 +7,7 @@ const projects = [
   {
     number: "01",
     name: "Kodus Legal",
+    slug: "kodus-legal",
     url: "koduslegal.com",
     tag: "Client Product",
     headline: "3 million legal documents. One search bar that actually understands the question.",
@@ -17,6 +18,7 @@ const projects = [
   {
     number: "02",
     name: "Cimenta",
+    slug: "cimenta",
     url: "cimenta.ai",
     tag: "Client Product",
     headline: "From blueprint to bill of materials in minutes, not days.",
@@ -27,6 +29,7 @@ const projects = [
   {
     number: "03",
     name: "Hecate",
+    slug: "hecate",
     url: "hecate.controlledmayhem.com",
     tag: "Internal Tool",
     headline: "Your .env files, encrypted before they leave your machine.",
@@ -165,7 +168,7 @@ function ProjectCard({
 
           {/* CTA */}
           <a
-            href="#"
+            href={`/work/${project.slug}`}
             className="group/link inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-white/30 transition-colors hover:text-[#C8FF00]"
           >
             View case study
